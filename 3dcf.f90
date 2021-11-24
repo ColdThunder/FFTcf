@@ -5,11 +5,6 @@ use p2grid
 use head
 implicit none
 
-character(512)::inv1
-character(512)::inv2
-character(512)::inv3
-character(16)::s1,s2,s3
-
 integer(4)::LL(3)
 real(4),allocatable::pos(:,:)
 real(4),allocatable::ran(:,:)
@@ -18,8 +13,9 @@ real(8),allocatable::rden(:,:,:)
 complex(4),allocatable::vc1(:,:,:)
 complex(4),allocatable::vc2(:,:,:)
 
+real(4)::boxinfo(2,3)
+
 integer(4)::i,j,k,dir
-integer(4)::NUM_THREADS=32
 
 integer(kind(ngal))::pid
 
@@ -29,10 +25,17 @@ logical(4)::debug=.false.
 
 call omp_set_num_threads(NUM_THREADS)
 LL=[L,L,L]
+boxinfo(1:2,1)=[0.,box]
+boxinfo(1:2,2)=[0.,box]
+boxinfo(1:2,3)=[0.,box]
 
 call memo(0)
 call readdata
+
 fs=L/box
+call ompshift(pos,3,ngal,[0.,0.,0.],boxinfo)
+if (flag_r) call ompshift(ran,3,nran,[0.,0.,0.],boxinfo)
+
 call ompscale(pos,3,ngal,[fs,fs,fs])
 if (flag_r) call ompscale(ran,3,nran,[fs,fs,fs])
 

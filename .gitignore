@@ -1,7 +1,9 @@
-*data/*
+data/*
+!.gitkeep
 plot/.ipynb_checkpoints
 
 mkl_dft_type.mod
 mkl_dfti.mod
 *.mod
 *.out
+*.swp

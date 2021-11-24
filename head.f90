@@ -24,4 +24,6 @@ real(4)::rmin=0.
 real(4)::rmax=200.
 integer(4)::rbin=100
 
+integer(4)::NUM_THREADS=32
+
 endmodule head
