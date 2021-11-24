@@ -215,6 +215,13 @@ cf8(6,:)=cf8(6,:)/cf8(9,:)-cf8(5,:)**2
 cf8(7,:)=cf8(7,:)/cf8(9,:)
 cf8(8,:)=cf8(8,:)/cf8(9,:)-cf8(7,:)**2
 
+if (usecenter) then
+  do i=1,rbin
+    cf8(1,i)=rmin+(i-0.5)*dr
+  enddo
+  cf8(2,:)=0.
+endif
+
 write(*,*) 'writing:',trim(filename)
 open(32,file=filename,form='formatted',status='replace')
 do i=1,rbin
