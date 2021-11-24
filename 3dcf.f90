@@ -21,6 +21,7 @@ integer(kind(ngal))::pid
 
 real(8),allocatable::cf8(:,:)
 real(4)::fs
+real(4)::npeff
 logical(4)::debug=.false.
 
 call omp_set_num_threads(NUM_THREADS)

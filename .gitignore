@@ -1,4 +1,5 @@
 data/*
+backup
 !.gitkeep
 plot/.ipynb_checkpoints
 

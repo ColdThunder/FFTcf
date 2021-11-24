@@ -3,7 +3,7 @@ module head
 implicit none
 
 real(4),parameter::box=1000.  ! box size in Mpc/h
-integer(4),parameter::L=1024   ! cells per dimension
+integer(4),parameter::L=512   ! cells per dimension
 
 character(512)::outname='./output/2pcf-ran.txt'
 
