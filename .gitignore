@@ -1,6 +1,4 @@
 data/**
-output/**
-plot/**
 
 mkl_dft_type.mod
 mkl_dfti.mod
