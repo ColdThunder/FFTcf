@@ -5,11 +5,11 @@ EXEC = 3dcf.out
 
 SRCS = 3dcf.f90
 
-OBJS = $(SRCS:.f90=.o)
-
 MODSRCS = ./head.f90 ./myomp.f90 ./p2grid.f90
 
 MODS = $(MODSRCS:.f90=.mod)
+
+OBJS = $(SRCS:.f90=.o) $(MODSRCS:.f90=.o)
 
 INCL = -I./
 
@@ -27,6 +27,6 @@ $(MODS):$(MODSRCS)
 
 .PHONY:clean
 clean:
-	-rm -rf $(EXEC) $(MODS)
+	-rm -rf $(EXEC) $(OBJS) $(MODS)
 ########################################################################
 
